@@ -57,13 +57,14 @@ def send_birthday_congrats():
             continue
 
         if bday.day == today.day and bday.month == today.month and friend['sex'] == 1:
-            vk.messages.send(
-                user_id=friend['id'],
-                message=message,
-                random_id=int(time.time() * 1000)
-            )
-            time.sleep(20)
-            logging.info(f'Поздравление отправлено {friend["first_name"]} {friend["last_name"]}')
+            logging.info(friend)
+            # vk.messages.send(
+            #     user_id=friend['id'],
+            #     message=message,
+            #     random_id=int(time.time() * 1000)
+            # )
+            # time.sleep(20)
+            # logging.info(f'Поздравление отправлено {friend["first_name"]} {friend["last_name"]}')
 
 
 if __name__ == '__main__':
