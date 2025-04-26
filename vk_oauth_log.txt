@@ -1,0 +1,12 @@
+2025-04-14 20:10:22,807 - INFO - Запуск скрипта для авторизации ВКонтакте с использованием OAuth.
+2025-04-14 20:10:23,515 - INFO - Открыта страница авторизации.
+2025-04-14 20:10:23,597 - INFO - Введён логин.
+2025-04-14 20:10:30,912 - ERROR - ❌ Не удалось получить токен. URL: https://oauth.vk.com/authorize?client_id=6287487&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=token&scope=404634839&v=&state=&revoke=1&display=page&m=4&email=%F2%E2%EE%FF_%EF%EE%F7%F2%E0_%E8%EB%E8_%ED%EE%EC%E5%F0
+2025-04-14 20:10:59,412 - INFO - Запуск скрипта для авторизации ВКонтакте с использованием OAuth.
+2025-04-14 20:11:00,112 - INFO - Открыта страница авторизации.
+2025-04-14 20:11:00,191 - INFO - Введён логин.
+2025-04-14 20:11:07,376 - ERROR - ❌ Не удалось получить токен. URL: https://oauth.vk.com/authorize?client_id=6287487&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=token&scope=404634839&v=&state=&revoke=1&display=page&m=4&email=
+2025-04-14 20:12:04,174 - INFO - Запуск скрипта для авторизации ВКонтакте с использованием OAuth.
+2025-04-14 20:12:04,919 - INFO - Открыта страница авторизации.
+2025-04-14 20:12:04,995 - INFO - Введён логин.
+2025-04-14 20:12:12,472 - ERROR - ❌ Не удалось получить токен. URL: https://oauth.vk.com/authorize?client_id=6287487&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=token&scope=404634839&v=&state=&revoke=1&display=page&m=4&email=
