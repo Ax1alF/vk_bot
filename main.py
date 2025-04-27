@@ -17,6 +17,28 @@ TOKEN = os.getenv('VK_API_TOKEN')
 vk_session = vk_api.VkApi(token=TOKEN)
 vk = vk_session.get_api()
 
+EXCLUDE_PEOPLE = [
+    "Виктория Панченкова",
+    "Светлана Киселева",
+    "Татьяна Валентиновна",
+    "Людмила Остапенко",
+    "Виктория Панченкова",
+    "Мария Прилипко",
+    "Юлия Гиревая-Белоконева",
+    "Инна Лавриненко",
+    "Наталья Выпирайлова",
+    "Оля Пахомова",
+    "Лариса Косухина",
+    "Марина Евстафьева",
+    "Валентина Ноздрина",
+    "Евгения Багатурия",
+    "Анэлия Погорелова",
+    "Алина Шерстюк",
+    "Larisa Larisa",
+    "Дарья Лебедева",
+    "Дарья Ноздрина",
+]
+
 
 upload = vk_api.VkUpload(vk_session)
 photo = upload.photo_messages('photo.jpg')[0]
@@ -72,6 +94,10 @@ def send_birthday_congrats():
         return
 
     for friend in friends:
+        if f'{friend["first_name"]} {friend["last_name"]}' in EXCLUDE_PEOPLE:
+            logging.info(f'Сегодня ДР у {friend["first_name"]} {friend["last_name"]}, не отправляем сообщение')
+            continue
+
         bday = parse_vk_bdate(friend.get('bdate'))
         if bday is None:
             continue
