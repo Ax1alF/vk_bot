@@ -3,9 +3,11 @@ from datetime import datetime, date
 from typing import Optional
 from dotenv import load_dotenv
 import os
+import random
 import logging
 
 import vk_api
+import textwrap
 
 load_dotenv()
 
@@ -16,7 +18,25 @@ vk_session = vk_api.VkApi(token=TOKEN)
 vk = vk_session.get_api()
 
 
-message = 'Это сообщение отправлено ботом\n Через enter'
+upload = vk_api.VkUpload(vk_session)
+photo = upload.photo_messages('photo.jpg')[0]
+attachment = f"photo{photo['owner_id']}_{photo['id']}"
+
+
+def generate_message(name: str) -> str:
+    return textwrap.dedent(f"""\
+        {name}, Поздравляю с Днем рождения!
+        Счастья, любви, много цветов и прекрасного настроения в этот замечательный день!
+        💐🌺🌸🌹🌷💥🌟🎉💖🎀❤️💝🎂🍹🍺🍷🍸
+
+        Для вас я дарю скидку 1000₽ на любую новую процедуру у нас в студии. Воспользоваться подарком можно в течение месяца.
+
+        Чтобы забрать подарок, напишите мне в ответ «+»
+
+        Топ мастер Школы-студии перманентного макияжа «ЭСТЕТИКА» Евгения Муравлёва
+
+        https://vk.com/brovibelg_pm
+    """)
 
 
 def parse_vk_bdate(bdate_str: str) -> Optional[date]:
@@ -57,14 +77,14 @@ def send_birthday_congrats():
             continue
 
         if bday.day == today.day and bday.month == today.month and friend['sex'] == 1:
-            logging.info(friend)
-            # vk.messages.send(
-            #     user_id=friend['id'],
-            #     message=message,
-            #     random_id=int(time.time() * 1000)
-            # )
-            # time.sleep(20)
-            # logging.info(f'Поздравление отправлено {friend["first_name"]} {friend["last_name"]}')
+            vk.messages.send(
+                user_id=friend['id'],
+                message=generate_message(friend["first_name"]),
+                random_id=int(time.time() * 1000),
+                attachment=attachment
+            )
+            time.sleep(random.uniform(2.5, 5.0))
+            logging.info(f'Поздравление отправлено {friend["first_name"]} {friend["last_name"]}')
 
 
 if __name__ == '__main__':
@@ -77,3 +97,7 @@ if __name__ == '__main__':
         ]
     )
     send_birthday_congrats()
+
+
+
+# id жени 11830595
