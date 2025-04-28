@@ -94,15 +94,15 @@ def send_birthday_congrats():
         return
 
     for friend in friends:
-        if f'{friend["first_name"]} {friend["last_name"]}' in EXCLUDE_PEOPLE:
-            logging.info(f'Сегодня ДР у {friend["first_name"]} {friend["last_name"]}, не отправляем сообщение')
-            continue
-
         bday = parse_vk_bdate(friend.get('bdate'))
         if bday is None:
             continue
 
         if bday.day == today.day and bday.month == today.month and friend['sex'] == 1:
+            if f'{friend["first_name"]} {friend["last_name"]}' in EXCLUDE_PEOPLE:
+                logging.info(f'Сегодня ДР у {friend["first_name"]} {friend["last_name"]}, не отправляем сообщение')
+                continue
+
             vk.messages.send(
                 user_id=friend['id'],
                 message=generate_message(friend["first_name"]),
