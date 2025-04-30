@@ -14,15 +14,6 @@ chrome_options.add_argument("--profile-directory=Default")
 
 driver = webdriver.Chrome(options=chrome_options)
 
-# Проверим авторизован ли пользователь
-driver.get("https://oauth.vk.com")
-time.sleep(2)
-
-if "login.vk.com" in driver.current_url:
-    print("❌ Сессия не активна. Требуется повторная авторизация.")
-    driver.quit()
-    exit()
-
 # Переходим по OAuth-ссылке
 driver.get("https://oauth.vk.com/authorize?client_id=6287487&scope=1073803263&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&revoke=1")
 time.sleep(3)
