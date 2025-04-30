@@ -13,6 +13,8 @@ chrome_options.add_argument("--no-sandbox")
 # Инициализируем новый экземпляр браузера
 driver = webdriver.Chrome(options=chrome_options)
 
+driver.get("https://oauth.vk.com")
+time.sleep(2)
 
 # Загружаем cookies из сохранённого файла
 cookies_file = 'vk_cookies.pkl'
