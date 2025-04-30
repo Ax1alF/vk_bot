@@ -20,7 +20,7 @@ time.sleep(3)
 
 # Жмем "Разрешить", если нужно
 try:
-    allow_btn = driver.find_element("css selector", 'button[type="submit"], .FlatButton--primary')
+    allow_btn = driver.find_element('xpath', '//button[text()="Разрешить"]')
     allow_btn.click()
     time.sleep(2)
 except:
