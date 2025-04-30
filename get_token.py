@@ -15,7 +15,7 @@ driver = webdriver.Chrome(options=chrome_options)
 
 
 # Загружаем cookies из сохранённого файла
-cookies_file = 'cookies.pkl'
+cookies_file = 'vk_cookies.pkl'
 with open(cookies_file, 'rb') as f:
     cookies = pickle.load(f)
     for cookie in cookies:
