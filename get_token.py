@@ -3,16 +3,14 @@ from selenium.webdriver.chrome.options import Options
 import time
 import re
 
-chrome_options = Options()
-
 # 🔥 Укажи путь к своему рабочему профилю Chrome
-chrome_options.add_argument("--user-data-dir=/home/ubuntu/chromium")
-chrome_options.add_argument("--profile-directory=Default")
+options = Options()
+options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
 
 # ⛔️ НЕ headless! Нужно визуальное окно
 # chrome_options.add_argument("--headless")  # Отключи это
 
-driver = webdriver.Chrome(options=chrome_options)
+driver = webdriver.Chrome(options=options)
 
 # Переходим по OAuth-ссылке
 driver.get("https://oauth.vk.com/authorize?client_id=6287487&scope=1073803263&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&revoke=1")
