@@ -122,7 +122,13 @@ if __name__ == '__main__':
             logging.FileHandler("log.log")
         ]
     )
-    send_birthday_congrats()
+    # send_birthday_congrats()
+    vk.messages.send(
+        user_id=11830595,
+        message=generate_message("Женя"),
+        random_id=int(time.time() * 1000),
+        attachment=attachment
+    )
 
 
 

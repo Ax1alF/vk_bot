@@ -6,7 +6,7 @@ import re
 chrome_options = Options()
 
 # 🔥 Укажи путь к своему рабочему профилю Chrome
-chrome_options.add_argument("--user-data-dir=/home/ubuntu/snap/chromium/common/chromium")
+chrome_options.add_argument("--user-data-dir=/home/ubuntu/chromium")
 chrome_options.add_argument("--profile-directory=Default")
 
 # ⛔️ НЕ headless! Нужно визуальное окно
